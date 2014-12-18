@@ -1,0 +1,4 @@
+#!/bin/bash
+
+str="1234"
+echo ${str:1:-1}

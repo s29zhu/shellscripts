@@ -15,6 +15,7 @@ make EMBEDDED_IMAGE=../../iscsi.gpxe bin/gpxe.lkrn
 set -x
 cp bin/gpxe.lkrn /boot
 #grub-set-default gPXE # no longer working with some complaints on env block
+#^ character means a line start with saved_entry=0
 sed -i 's/^saved_entry=0/saved_entry=gPXE/' /boot/grub/grubenv
 cd -
 
@@ -29,6 +30,8 @@ else
     #We can't build from source. Get it from SRN via curl
     SRN_IP=`grep sanboot iscsi.gpxe |awk '{print $2}'|awk -F ':' '{print $2}'`
     set -x
+
+    # -F means submit, @ means we attach iscsi.gpxe as a file
     curl -o /boot/gpxe.lkrn -F "myFile=@iscsi.gpxe" http://$SRN_IP/buildgPXE.php
     set +x 
     if [ -f /boot/grub/grub.conf ]; then

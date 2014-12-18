@@ -1,0 +1,22 @@
+#!/bin/bash
+if [ $# -ne 1 ]; then
+        echo "syntax: $0 <Prection Group Name>"
+        echo "exit"
+        exit -1
+fi
+
+targets=`ls /var/syntropy/targets/$1`
+basedir="/var/syntropy/targets/$1/"
+
+for target in $targets
+do
+#backtick, content inside backtick will be executed before the main command, and
+#the result is used in the main command instead
+    str1=`cat $basedir$target/$target.target | grep iqn`
+
+#get the substring from index 7 to the end of str1
+    iqn1=${str1:7:-1}
+    /usr/lib/datagardens/scripts/targetInfo $iqn1
+done
+
+
