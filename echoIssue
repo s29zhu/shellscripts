@@ -1,0 +1,6 @@
+#!/bin/bash
+echo -e "\033[32m Hard to predict echo behavior on different bash version"
+echo -e "\033[0m" '''echo -c line1'''
+echo -c "line1"
+echo '''echo -n line2'''
+echo -n "line2"

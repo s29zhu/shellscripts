@@ -1,0 +1,15 @@
+#!/bin/bash
+if [ $# -eq 0 ] 
+then
+ printf "%s\n" "usage: specialParameters string1 [string2] ..."
+ exit 5
+fi
+
+printf "%s: %s\n" '''$* or $@''' "a list of all positional parameters"
+printf "%s: %s\n" '''$#'''  "the number of positional parameters"
+printf "%s: %s\n" '''$0'''  "the path of current running script or the shell itself if there is no script"
+printf "%s: %s\n" '''$$'''  "process number(PID) of current process"
+printf "%s: %s\n" '''$?'''  "the exit code of the last-excuted command"
+printf "%s: %s\n" '''$_'''  "the last argument to that command"
+printf "%s: %s\n" '''$!'''  "PID of the last command executed in the background"
+printf "%s: %s\n" '''$-'''  "option flag currently in effect"
