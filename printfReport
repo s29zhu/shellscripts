@@ -1,0 +1,8 @@
+#!/bin/bash
+#\a alert gives you a sound
+printf "%b\n" "\a alert"
+printf "%8s %8s:\n" first third fourth fifth sixth
+printf "%08s %08s:\n" first third fourth fifth sixth
+printf "%08s %-15s:\n" first third fourth fifth sixth
+printf -v variable1 "string1"
+printf "%s\n" $variable1 

@@ -1,6 +1,7 @@
 #!/bin/bash
 
 clear 
+# -e option of echo command enable the parsing of the escape sequences.
 echo -e "\033[1m Hello World"
  # bold effect
 echo -e "\033[5m Blink"
